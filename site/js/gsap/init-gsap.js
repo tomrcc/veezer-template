@@ -54,14 +54,16 @@ function initGsap() {
         } else {
 
           console.log("Non-touch screen detected, small width - activate parallax!");
-
-          ScrollSmoother.create({
-            wrapper: '#gsap-smooth-wrapper', // ID of wrapper element
-            content: '#gsap-smooth-content', // ID of content element
-            smooth: 1, // Adjust smooth scroll speed as needed
-            speed: 0.5,
-            effects: true // Enable data-speed/data-lag needed for parallax effects
-          });
+          
+          ScrollTrigger.create({});
+          
+          // ScrollSmoother.create({
+          //   wrapper: '#gsap-smooth-wrapper', // ID of wrapper element
+          //   content: '#gsap-smooth-content', // ID of content element
+          //   smooth: 1, // Adjust smooth scroll speed as needed
+          //   speed: 0.5,
+          //   effects: true // Enable data-speed/data-lag needed for parallax effects
+          // });
 
         }
 
@@ -146,7 +148,7 @@ function initGsap() {
       }, 250);
 
     }
-    
+
   });
 
 
