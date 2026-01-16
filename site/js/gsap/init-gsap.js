@@ -163,7 +163,7 @@ function initGsap() {
 
     if (totalImages === 0) {
 
-      // No images in this div so just call gsap functions straight away.
+      // No images in this div so just call GSAP functions straight away.
       gsapFunctions(section);
 
     } else {
