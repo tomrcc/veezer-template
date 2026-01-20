@@ -5,7 +5,7 @@ tags: documentation
 permalink: /documentation/javascript/gsap-animations-optimisation/
 url: /documentation/javascript/gsap-animations-optimisation/
 layout: layouts/documentation.liquid
-date: 2026-01-13T00:00:00+13:00
+date: 2026-01-20T00:00:00+13:00
 seo:
   meta_title:
   meta_description:
