@@ -1,6 +1,7 @@
 /* Keep all FAQ items open in editor. */
 .cms-editor-active .faq-content {
-  grid-template-rows: 1fr !important;
+  /* grid-template-rows: 1fr !important; */
+  height: auto !important;
 }
 
 .faq {
