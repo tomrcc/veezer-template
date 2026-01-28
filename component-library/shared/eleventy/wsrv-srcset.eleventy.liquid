@@ -26,6 +26,7 @@ Currently NOT USED (use object-fit instead). To use as a parameter: e.g. '&a=bot
             {%- assign fo_value = "bottom-right" %}
     {%- endcase %}
 {%- endif %}
+<p>wsrv-srcset</p>
 <img {% if rs_lazy != false %}loading="lazy"{% endif %} alt="{{ rs_title }}" title="{{ rs_title }}" width="{{ rs_width }}" height="{{ rs_height }}" style="{% if rs_focal_point %}object-position: {{ rs_focal_point }};{% endif %}" {% if rs_class %}class="{{ rs_class }}"{% endif %} {% if rs_custom_attribute_text %}{{ rs_custom_attribute_text }}{% endif %}
     src="//wsrv.nl/?url={{ this_base_url }}{{ rs_image }}&h={{ rs_height }}&w={{ rs_width }}&fit=cover{% if rs_quality %}&q={{ rs_quality }}{% endif %}{% if fo_value %}&a={{ fo_value }}{% endif %}"
     srcset="//wsrv.nl/?url={{ this_base_url }}{{ rs_image }}&h={{ rs_very_small_height }}&w={{ rs_very_small_width }}&fit=cover{% if rs_quality %}&q={{ rs_quality }}{% endif %}{% if fo_value %}&a={{ fo_value }}{% endif %} 500w,

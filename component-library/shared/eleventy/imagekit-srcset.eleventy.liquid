@@ -24,6 +24,7 @@ Currently NOT USED (use object-fit instead). To use as a parameter: e.g. 'fo-bot
             {%- assign fo_value = "bottom_right" %}
     {%- endcase %}
 {%- endif %}
+<p>imagekit-srcset</p>
 <img {% if rs_lazy != false %}loading="lazy"{% endif %} alt="{{ rs_title }}" title="{{ rs_title }}" width="{{ rs_width }}" height="{{ rs_height }}" style="{% if rs_focal_point %}object-position: {{ rs_focal_point }};{% endif %}" {% if rs_class %}class="{{ rs_class }}"{% endif %} {% if rs_custom_attribute_text %}{{ rs_custom_attribute_text }}{% endif %}
     src="{{ site.imagekit_url }}{{ rs_image }}?tr=h-{{ rs_height }},w-{{ rs_width }}{% if rs_quality %},q-{{ rs_quality }}{% endif %}{% if fo_value %},fo-{{ fo_value }}{% endif %}"
     srcset="{{ site.imagekit_url }}{{ rs_image }}?tr=h-{{ rs_very_small_height }},w-{{ rs_very_small_width }}{% if rs_quality %},q-{{ rs_quality }}{% endif %}{% if fo_value %},fo-{{ fo_value }}{% endif %} 500w,
