@@ -1,4 +1,3 @@
-_schema: _schema
 source: site
 paths:
   uploads: uploads
@@ -11,8 +10,8 @@ collections_config:
   pages:
     path: pages
     icon: description
-    url: /[slug]/
-    output: true
+    url: /{permalink}/
+    disable_url: false
     description: ''
     _enabled_editors:
       - visual
@@ -31,7 +30,7 @@ collections_config:
     path: documentation
     icon: library_books
     url: /documentation/[slug]/
-    output: true
+    disable_url: false
     description: ''
     _enabled_editors:
       - content
@@ -50,7 +49,7 @@ collections_config:
     path: fleet
     icon: airport_shuttle
     url: /fleet/[slug]/
-    output: true
+    disable_url: false
     description: ''
     _enabled_editors:
       - visual
@@ -71,16 +70,13 @@ collections_config:
     name:
     singular_name:
     icon: calendar_month
-    output: true
     url: /events/[slug]/
-    filter:
-    parse_branch_index:
+    disable_url: false
     documentation:
     description: ''
     preview:
     sort:
     sort_options:
-    singular_key:
     _editables:
     _enabled_editors:
       - content
@@ -114,8 +110,7 @@ collections_config:
   blog:
     path: blog
     icon: article
-    output: true
-    # url: /blog/[slug]/
+    disable_url: false
     description: ''
     preview:
       metadata:
@@ -140,9 +135,7 @@ collections_config:
   data:
     path: _data
     icon: data_object
-    output: true
-    filter:
-      exclude:
+    disable_url: false
     description: ''
     _enabled_editors:
       - data
@@ -163,258 +156,249 @@ collection_groups:
     collections:
       - data
 _inputs:
-
   date:
     type: date
     instance_value: NOW
+    cascade: true
   uuid:
     type: auto
     instance_value: UUID
     hidden: true
+    cascade: true
   permalink:
     options:
-      pattern: '^[\/].*[\/]$|^\/$'
+      pattern: ^[\/].*[\/]$|^\/$
       pattern_message: Permalink must start and end with a forward slash.
-    
-  main_column: # Updated 22/11/2025
+    cascade: true
+  main_column:
     type: markdown
     options:
-      # Text options
+      allow_resize: true
+      allow_custom_markup: false
+      remove_custom_markup: false
+      initial_height: 320
       blockquote: true
       bold: true
-      format: p h1 h2 h3 h4 pre
-      italic: true
-      link: true
-      strike: true
-      subscript: true
-      superscript: true
-      # Style and alignment options
-      styles: /css/editor.css
-      left: align-left
-      center: align-center
-      right: align-right
-      justify: align-justify
-      # List options
       bulletedlist: true
-      numberedlist: true
-      # Image options
-      image_size_attributes: true
-      width: 1200
-      height: 1400
-      resize_style: contain
-      expandable: false
-      allowed_sources:
-        - site-files
-      # Block options
+      center: align-center
       code: true
+      expandable: false
+      format: p h1 h2 h3 h4 pre
+      height: 1400
       horizontalrule: true
       image: true
-      table: true
-      # Action options
-      undo: true
-      redo: true
-      removeformat: true
-      # Paths
+      image_size_attributes: true
+      italic: true
+      justify: align-justify
+      left: align-left
+      link: true
+      numberedlist: true
       paths:
         uploads: uploads/content
-      # Custom markup
-      allow_custom_markup: false
-
-  left_column: # Updated 22/11/2025
+      redo: true
+      removeformat: true
+      resize_style: contain
+      right: align-right
+      strike: true
+      styles: /css/editor.css
+      subscript: true
+      superscript: true
+      table: true
+      undo: true
+      width: 1200
+    cascade: true
+  left_column:
     type: markdown
     options:
-      # Text options
+      allow_resize: true
+      allow_custom_markup: false
+      remove_custom_markup: false
+      initial_height: 320
       blockquote: true
       bold: true
-      format: p h1 h2 h3 h4 pre
-      italic: true
-      link: true
-      strike: true
-      subscript: true
-      superscript: true
-      # Style and alignment options
-      styles: /css/editor.css
-      left: align-left
-      center: align-center
-      right: align-right
-      justify: align-justify
-      # List options
       bulletedlist: true
-      numberedlist: true
-      # Image options
-      image_size_attributes: true
-      width: 1200
-      height: 1400
-      resize_style: contain
-      expandable: false
-      allowed_sources:
-        - site-files
-      # Block options
+      center: align-center
       code: true
+      expandable: false
+      format: p h1 h2 h3 h4 pre
+      height: 1400
       horizontalrule: true
       image: true
-      table: true
-      # Action options
-      undo: true
-      redo: true
-      removeformat: true
-      # Paths
+      image_size_attributes: true
+      italic: true
+      justify: align-justify
+      left: align-left
+      link: true
+      numberedlist: true
       paths:
         uploads: uploads/content
-      # Custom markup
-      allow_custom_markup: false
-
-  right_column: # Updated 22/11/2025
+      redo: true
+      removeformat: true
+      resize_style: contain
+      right: align-right
+      strike: true
+      styles: /css/editor.css
+      subscript: true
+      superscript: true
+      table: true
+      undo: true
+      width: 1200
+    cascade: true
+  right_column:
     type: markdown
     options:
-      # Text options
+      allow_resize: true
+      allow_custom_markup: false
+      remove_custom_markup: false
+      initial_height: 320
       blockquote: true
       bold: true
-      format: p h1 h2 h3 h4 pre
-      italic: true
-      link: true
-      strike: true
-      subscript: true
-      superscript: true
-      # Style and alignment options
-      styles: /css/editor.css
-      left: align-left
-      center: align-center
-      right: align-right
-      justify: align-justify
-      # List options
       bulletedlist: true
-      numberedlist: true
-      # Image options
-      image_size_attributes: true
-      width: 1200
-      height: 1400
-      resize_style: contain
-      expandable: false
-      allowed_sources:
-        - site-files
-      # Block options
+      center: align-center
       code: true
+      expandable: false
+      format: p h1 h2 h3 h4 pre
+      height: 1400
       horizontalrule: true
       image: true
-      table: true
-      # Action options
-      undo: true
-      redo: true
-      removeformat: true
-      # Paths
+      image_size_attributes: true
+      italic: true
+      justify: align-justify
+      left: align-left
+      link: true
+      numberedlist: true
       paths:
         uploads: uploads/content
-      # Custom markup
-      allow_custom_markup: false
-
-  # Image Fields
+      redo: true
+      removeformat: true
+      resize_style: contain
+      right: align-right
+      strike: true
+      styles: /css/editor.css
+      subscript: true
+      superscript: true
+      table: true
+      undo: true
+      width: 1200
+    cascade: true
   gallery_image:
     type: image
     options:
-      width: 1800
-      height: 1800
-      resize_style: contain
-      expandable: false
       paths:
         uploads: uploads/gallery
+      resize_style: contain
+      width: 1800
+      height: 1800
+      expandable: false
     label: Gallery Image
+    cascade: true
   blog_feature_image:
     type: image
     options:
-      width: 1200
-      height: 1400
-      resize_style: contain
-      expandable: false
       paths:
         uploads: uploads/blog
+      resize_style: contain
+      width: 1200
+      height: 1400
+      expandable: false
       required: true
       required_message: An image is required.
     label: Featured Image
     comment: Defaults to the image set in the Site SEO data file.
+    cascade: true
   meta_image:
     type: image
     options:
-      width: 1200
-      height: 1400
-      resize_style: contain
-      expandable: false
       paths:
         uploads: uploads/meta
+      resize_style: contain
+      width: 1200
+      height: 1400
+      expandable: false
     label: Meta Image
     comment: >-
       If empty, defaults to the featured image (if a blog post) otherwise to the
       image set in the Site SEO data file.
+    cascade: true
   team_image:
     type: image
     options:
-      width: 800
-      height: 1000
-      resize_style: contain
-      expandable: false
       paths:
         uploads: uploads/team
+      resize_style: contain
+      width: 800
+      height: 1000
+      expandable: false
     label: Team Member Image
+    cascade: true
   slider_image:
     type: image
     options:
-      width: 1000
-      height: 1200
-      resize_style: contain
-      expandable: false
       paths:
         uploads: uploads/slider
+      resize_style: contain
+      width: 1000
+      height: 1200
+      expandable: false
     label: Slider Image
+    cascade: true
   feature_image:
     type: image
     options:
-      width: 1200
-      height: 1000
-      resize_style: contain
-      expandable: false
       paths:
         uploads: uploads/feature
+      resize_style: contain
+      width: 1200
+      height: 1000
+      expandable: false
     label: Feature Image
+    cascade: true
   event_summary_image:
     type: image
     options:
-      width: 1800
-      height: 1800
-      resize_style: contain
-      expandable: false
       paths:
         uploads: uploads/events
+      resize_style: contain
+      width: 1800
+      height: 1800
+      expandable: false
     label: Event Summary Image
-
-  # Image related fields
+    cascade: true
   multi_column_max_image_width:
+    comment: >-
+      Hidden. Used with srcset on the image value like 100vw, 50vw, 600px to
+      restrict sizing.
     hidden: true
-    comment: "Hidden. Used with srcset on the image value like 100vw, 50vw, 600px to restrict sizing."
+    cascade: true
   image_quality:
     type: number
-    comment: "Enter a value 60 to 100 (Default is 90). Applies to images on production sites only."
     options:
       min: 60
       max: 100
       step: 1
+    comment: >-
+      Enter a value 60 to 100 (Default is 90). Applies to images on production
+      sites only.
+    cascade: true
   image_aspect_ratio:
     type: select
     options:
       allow_empty: false
       values:
-        1 : "1:1"
-        1.25 : "5:4"
-        1.33 : "4:3"
-        1.5 : "3:2"
-        1.66 : "5:3"
-        1.77 : "16:9"
-        2 : "2:1"
-        3 : "3:1"
-        0.8 : "4:5"
-        0.75 : "3:4"
-        0.66 : "2:3"
-        0.6 : "3:5"
-        "auto": "Auto"
+        '1': '1:1'
+        '2': '2:1'
+        '3': '3:1'
+        '1.25': '5:4'
+        '1.33': '4:3'
+        '1.5': '3:2'
+        '1.66': '5:3'
+        '1.77': '16:9'
+        '0.8': '4:5'
+        '0.75': '3:4'
+        '0.66': '2:3'
+        '0.6': '3:5'
+        auto: Auto
+    cascade: true
   focal_point:
     type: select
     options:
@@ -429,8 +413,7 @@ _inputs:
         right top: Right Top
         right center: Right Center
         right bottom: Right Bottom
-        
-  # Embed related fields
+    cascade: true
   embed_aspect_ratio:
     type: select
     options:
@@ -448,9 +431,7 @@ _inputs:
         ratio-2-3: '2:3'
         ratio-3-5: '3:5'
         ratio-9-16: 9:16 (FB Reels)
-      label: Embed Aspect Ratio
- 
-  # Section and general layout
+    cascade: true
   component_palette:
     type: select
     options:
@@ -465,6 +446,7 @@ _inputs:
         alternate-1: Alternate 1
         alternate-2: Alternate 2
         alternate-3: Alternate 3
+    cascade: true
     allow_empty: false
   component_palette_secondary:
     type: select
@@ -480,6 +462,7 @@ _inputs:
         alternate-1: Alternate 1
         alternate-2: Alternate 2
         alternate-3: Alternate 3
+    cascade: true
     allow_empty: false
   title_size:
     type: select
@@ -489,6 +472,7 @@ _inputs:
         h1: H1
         h2: H2
         h3: H3
+    cascade: true
   content_alignment:
     type: select
     options:
@@ -497,12 +481,14 @@ _inputs:
         left: Left
         centered: Centered
         right: Right
+    cascade: true
   content_padding_top:
     type: number
     options:
       min: 0
       max: 7
       step: 1
+    cascade: true
     allow_empty: false
   content_padding_bottom:
     type: number
@@ -510,118 +496,120 @@ _inputs:
       min: 0
       max: 7
       step: 1
+    cascade: true
     allow_empty: false
-  
-  # Pagination related fields
   pagination.data:
     type: auto
     hidden: true
+    cascade: true
   pagination.alias:
     type: auto
     hidden: true
-  
-  # Footer related fields
+    cascade: true
   social:
     type: auto
     options:
       structures: _structures.social
       preview:
         icon: link
+    cascade: true
   links:
     type: auto
     options:
       structures: _structures.links
       preview:
         icon: link
+    cascade: true
   sections:
     type: auto
     options:
       structures: _structures.sections
       preview:
         icon: link
+    cascade: true
   items:
     type: auto
     options:
       preview:
         icon: link
-  #social[*].icon:
-  # type: select
-  #  options:
-  #    allow_empty: true
-  #    values:
-  #      <i class="fa-brands fa-square-facebook"></i>: Facebook
-  #      <i class="fa-brands fa-square-instagram"></i>: Instagram
-  #      <i class="fa-brands fa-square-x-twitter"></i>: Twitter/X
-  #      <i class="fa-brands fa-linkedin"></i>: LinkedIn
-  #      <i class="fa-brands fa-youtube"></i>: YouTube
-  #  comment: Font Awesome Social Icons
-
-  # Contact related fields
+    cascade: true
   address:
     type: textarea
+    cascade: true
   hours:
     type: textarea
-  
-  # Sitewide settings
+    cascade: true
   use_fetch:
     type: auto
     comment: Check if want to have AJAX page transitions.
+    cascade: true
   base_url:
     type: auto
     comment: Use production site base URL (leave off the trailing forward slash).
+    cascade: true
   site_title:
     type: auto
     comment: Used for SEO
+    cascade: true
   site_description:
     type: auto
     comment: Default meta description for SEO
+    cascade: true
   site_logo:
     type: image
     options:
-      width: 300
-      height: 300
-      resize_style: contain
-      expandable: false
       paths:
         uploads: uploads/theme
+      resize_style: contain
+      width: 300
+      height: 300
+      expandable: false
+    cascade: true
   site_image:
     type: image
     options:
-      width: 1600
-      height: 1600
-      resize_style: contain
-      expandable: false
       paths:
         uploads: uploads/defaults
+      resize_style: contain
+      width: 1600
+      height: 1600
+      expandable: false
     comment: Default image for SEO
+    cascade: true
   twitter_image:
     type: image
     options:
-      width: 1600
-      height: 1600
-      resize_style: contain
-      expandable: false
       paths:
         uploads: uploads/defaults
+      resize_style: contain
+      width: 1600
+      height: 1600
+      expandable: false
     comment: Default image for SEO
+    cascade: true
   twitter_site:
     type: twitter
     label: Twitter Username/Handle
     comment: Default for page SEO (for example @happymarketer)
+    cascade: true
   placeholder_image:
     type: image
     comment: Used as default image until replaced
+    cascade: true
   meta_title:
     type: auto
     comment: If empty, defaults to the title of the page
+    cascade: true
   meta_description:
     type: auto
     comment: >-
       If empty, defaults to the excerpt (if a blog post) otherwise to the
       description set in the Site SEO data file
+    cascade: true
   canonical_url:
     type: auto
     comment: If empty, defaults to the page URL
+    cascade: true
   open_graph_type:
     type: select
     options:
@@ -630,74 +618,80 @@ _inputs:
         - website
         - article
         - profile
+    cascade: true
   author_twitter_handle:
     type: twitter
     comment: Defaults to the twitter site value set in the Site SEO data file
+    cascade: true
   no_index:
     type: checkbox
     comment: >-
       When selected this removes the page from your sitemap and adds the noindex
       robots meta tag
-
-  # Navigation related fields
+    cascade: true
   enable_dropdown:
     type: switch
     comment: Enables dropdown of sub-navigation items (if present) on the main navbar.
+    cascade: true
   sub_navigation_group_title:
     comment: >-
       Used in the sub-navigation components to know which sub navigation items
       to display.
+    cascade: true
   sub_navigation:
     type: array
     options:
       structures: _structures.sub_navigation
     label: Sub Navigation Items
+    cascade: true
   navigation_group:
     type: select
     options:
+      allow_empty: true
       values: data.nav.items[*].sub_navigation_group_title
     comment: >-
-      Pulled from on any sub-navigation group titles added in the main nav file of the data
-      folder ('_data/nav.json').
-
-  # Collections and Blog related fields
+      Pulled from on any sub-navigation group titles added in the main nav file
+      of the data folder ('_data/nav.json').
+    cascade: true
   excerpt:
     type: textarea
     comment: Short summary of page (e.g. first one or two sentences)
+    cascade: true
   fleet_category:
     type: select
     options:
       allow_empty: true
       values: data.fleet-categories.category
     comment: Choose fleet category this item belongs to (for filtering).
+    cascade: true
   tags:
     type: multiselect
     options:
-      empty_type: array
+      allow_empty: true
       values: data.blog-tags
       value_key: title
       preview:
         text:
           - key: title
+      empty_type: array
+    cascade: true
   layout:
     type: auto
     hidden: true
+    cascade: true
   eleventyExcludeFromCollections:
     type: auto
     hidden: true
-    
+    cascade: true
 _structures:
-
   content_blocks:
     style: modal
-  # Navigation related structures
   sub_navigation:
     style: select
     values:
       value:
         text:
         link:
-  # Footer related structures
   social:
     style: select
     values:
@@ -717,7 +711,6 @@ _structures:
       value:
         text:
         link:
-  # Image related structures
   photos:
     style: select
     values:
@@ -727,37 +720,16 @@ _structures:
         value:
           gallery_image:
           title:
-  # Embed related structures
   embed_code:
     style: select
     values:
-      - label: Embed Code
-        icon: play_circle
+      - icon: play_circle
+        label: Embed Code
         value:
           code_block:
           embed_aspect_ratio:
-          
 _editables:
-
-  # Editable regions in the Visual Editor (not working currently)
-  #text:
-  #  bold: true
-  #  italic: true
-  #  underline: true
-  #block:
-  #  format: p h2 h3 h4 h3
-  # undo: true
-  #  redo: true
-  #link:
-  #  bold: true
-  #  italic: true
-  # underline: true
-  #image:
-  #  allowed_sources:
-  #    - site-files
-    
-  content: # Rich Text Editor in Content Editor (e.g. Blog Post)
-    # Text options
+  content:
     blockquote: true
     bold: true
     format: p h1 h2 h3 h4 pre
@@ -767,20 +739,17 @@ _editables:
     subscript: true
     superscript: true
     underline: true
-    # Style and alignment options
     styles: /css/editor.css
     left: align-left
     center: align-center
     right: align-right
     justify: align-justify
-    # List options
     bulletedlist: true
     numberedlist: true
     indent: true
     outdent: true
     join_above: true
     join_below: true
-    # Image options
     image_size_attributes: true
     width: 1200
     height: 1400
@@ -788,24 +757,18 @@ _editables:
     expandable: false
     allowed_sources:
       - site-files
-    # Block options
     code: true
     embed: true
     horizontalrule: true
     image: true
     table: true
-    # Action options
     undo: true
     redo: true
     removeformat: true
-    # Paths
     paths:
       uploads: uploads/content
-    # Custom markup
     allow_custom_markup: false
-    
 data_config:
-
   blog-tags:
     path: _data/blog-tags.json
   contact:
@@ -824,6 +787,4 @@ data_config:
     path: _data/site.json
   icon-sets:
     path: _data/icon-sets.json
-    
 timezone: Pacific/Auckland
-
