@@ -70,7 +70,7 @@ Prefix all variables in this include with 'rs' (for 'resize').
     See notes below about variable scope.
     {% endcomment %}
     
-    <p>fallback</p>
+    <p>Current image in resize-image-srcset {{ rs_image }}</p>
     <img {% if rs_lazy != false %}loading="lazy"{% endif %} style="aspect-ratio: {% unless img.crop == "auto" %}{{ final_aspect_ratio }}{% else %}auto{% endunless %}; object-fit: cover; {% if rs_focal_point %}object-position: {{ rs_focal_point }};{% endif %}" src="{{ rs_image }}" alt="{{ rs_title }}" title="{{ rs_title }}" class="{% if rs_class %}{{ rs_class }}{% endif %}" {% if rs_custom_attribute_text %}{{ rs_custom_attribute_text }}{% endif %} width="{{ rs_width }}" height="{{ rs_height }}" onerror="this.onerror=null;this.src='{{ site.placeholder_image }}'" />
       
 {%- endif %}

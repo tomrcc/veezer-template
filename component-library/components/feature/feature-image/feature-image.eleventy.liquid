@@ -14,16 +14,21 @@
             <marquee behavior="" direction="">{{ feature_image }}</marquee>
             {% assign current_image = feature_image %}
           {% endif %}
-          {% bookshop_include "resize-image-srcset" rs_lazy: true rs_image: current_image rs_quality: "70" rs_title: feature_image_title rs_multi_column_max_image_width: "100vw" %}
+          {% bookshop_include "resize-image-srcset"
+            , rs_lazy: true
+            , rs_image: current_image
+            , rs_quality: "70"
+            , rs_title: feature_image_title
+            , rs_multi_column_max_image_width: "100vw" %}
 
-          <marquee behavior="" direction="">🚀🚀🚀🚀🚀🚀🚀🚀🚀New way🚀🚀🚀🚀🚀🚀🚀🚀🚀</marquee>
-          <!-- New way -->
-          {% if feature_image %}
-            <marquee behavior="" direction="">{{ feature_image }}</marquee>
-            {% bookshop_include "resize-image-srcset" rs_lazy: true rs_image: feature_image rs_quality: "70" rs_title: feature_image_title rs_multi_column_max_image_width: "100vw" %}
-          {% else %}
-            {% bookshop_include "resize-image-srcset" rs_lazy: true rs_image: site.placeholder_image rs_quality: "70" rs_title: feature_image_title rs_multi_column_max_image_width: "100vw" %}
-          {% endif %}
+          <marquee behavior="" direction="">Current_image in feature-image.eleventy.liquid:
+            <strong>{{ current_image }}</strong>
+          </marquee>
+        <!-- New way
+        {% if feature_image %}  {% bookshop_include "resize-image-srcset" rs_lazy: true rs_image: feature_image rs_quality: "70" rs_title: feature_image_title rs_multi_column_max_image_width: "100vw" %}{% else %}
+          {% bookshop_include "resize-image-srcset" rs_lazy: true rs_image: site.placeholder_image rs_quality: "70" rs_title: feature_image_title rs_multi_column_max_image_width: "100vw" %}
+        {% endif %}
+        -->
         </div>
 
       </div>
