@@ -10,7 +10,7 @@ collections_config:
   pages:
     path: pages
     icon: description
-    url: /{permalink}/
+    url: '{permalink}'
     disable_url: false
     description: ''
     _enabled_editors:
