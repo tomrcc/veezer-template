@@ -9,11 +9,8 @@
       <div class="column is-10-tablet is-8-desktop is-offset-1-tablet is-offset-2-desktop">
 
         <div class="content gsap-element-wrapper" data-gsap-animation-name="slide-down-from-top">
-          {% assign current_image = site.placeholder_image %}
-          {% if feature_image %}
-            <marquee behavior="" direction="">{{ feature_image }}</marquee>
-            {% assign current_image = feature_image %}
-          {% endif %}
+          <marquee behavior="" direction="">{{ feature_image }}</marquee>
+          {% assign current_image = feature_image | default: site.placeholder_image %}
           {% bookshop_include "resize-image-srcset"
             , rs_lazy: true
             , rs_image: current_image
